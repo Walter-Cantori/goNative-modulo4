@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList } from 'react-native';
-import PropTypes from 'prop-types';
+import PropTypes, { shape } from 'prop-types';
 
 import { connect } from 'react-redux';
 
@@ -14,30 +14,34 @@ class Cart extends Component {
   };
 
   static propTypes = {
-    cart: PropTypes.shape({
-      items: PropTypes.array.isRequired,
-    }).isRequired,
+    items: PropTypes.arrayOf(shape({
+      qty: PropTypes.number.isRequired,
+      image: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      brand: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+    })).isRequired,
+    total: PropTypes.string.isRequired,
     navigation: PropTypes.shape({
       navigate: PropTypes.func.isRequired,
     }).isRequired,
   }
 
   render() {
-    const { cart } = this.props;
-    const subTotal = cart.items.reduce((acc, item) => (item.price * item.qty) + acc, 0).toFixed(2);
+    const { items, total } = this.props;
 
     return (
       <View style={styles.container}>
         <FlatList
           style={styles.list}
-          data={cart.items}
+          data={items}
           keyExtractor={item => String(item.id)}
           renderItem={({ item }) => <CartItem product={item} />}
         />
 
         <View style={styles.subtotalContainer}>
           <Text style={styles.subtotalTitle}>Subtotal</Text>
-          <Text style={styles.subtotalPrice}>R${subTotal}</Text>
+          <Text style={styles.subtotalPrice}>R${total}</Text>
         </View>
 
         <Footer navigation={this.props.navigation} />
@@ -47,7 +51,8 @@ class Cart extends Component {
 }
 
 const mapStateToProps = state => ({
-  cart: state.cart,
+  items: state.cart.items,
+  total: state.cart.items.reduce((acc, item) => (item.price * item.qty) + acc, 0).toFixed(2),
 });
 
 
