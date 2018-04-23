@@ -6,28 +6,7 @@ import ProductDetail from './pages/productDetail';
 
 import { colors } from './styles';
 
-const Routes = StackNavigator({
-  ProductDetail: { screen: ProductDetail },
-  Main: {
-    screen: TabNavigator({
-      Home: { screen: Home },
-      Cart: { screen: Cart },
-    }, {
-      tabBarPosition: 'bottom',
-      tabBarOptions: {
-        showIcon: true,
-        showLabel: false,
-        activeTintColor: colors.pink,
-        inactivateTintColor: colors.grey,
-        style: {
-          backgroundColor: colors.white,
-          height: 40,
-          paddingTop: 20,
-        },
-      },
-    }),
-  },
-}, {
+const stackNavOptions = {
   navigationOptions: {
     headerTintColor: colors.pink,
     headerBackTitle: null,
@@ -39,7 +18,35 @@ const Routes = StackNavigator({
       height: 54,
     },
   },
-  initialRouteName: 'Main',
-});
+};
+
+const tabNavOptions = {
+  tabBarPosition: 'bottom',
+  tabBarOptions: {
+    showIcon: true,
+    showLabel: false,
+    activeTintColor: colors.pink,
+    inactivateTintColor: colors.grey,
+    style: {
+      backgroundColor: colors.white,
+      height: 40,
+      paddingTop: 20,
+    },
+  },
+};
+
+const Product = StackNavigator({
+  Home: { screen: Home },
+  ProductDetail: { screen: ProductDetail },
+}, stackNavOptions);
+
+const Checkout = StackNavigator({
+  Cart: { screen: Cart },
+}, stackNavOptions);
+
+const Routes = TabNavigator({
+  Product: { screen: Product },
+  Checkout: { screen: Checkout },
+}, tabNavOptions);
 
 export default Routes;

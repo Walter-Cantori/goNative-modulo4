@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as CartActions } from '../../store/ducks/cart';
 
 import styles from './styles';
-import Footer from '../../components/Footer';
 
 class ProductDetail extends Component {
   static propTypes = {
@@ -32,7 +32,7 @@ class ProductDetail extends Component {
 
   static navigationOptions = {
     title: 'Detalhes do Produto',
-    tabBarIcon: () => {}
+    tabBarIcon: ({ tintColor }) => <Icon name="home" size={24} color={tintColor} />,
   };
 
   handleAddToCart(selectedProduct) {
@@ -63,7 +63,6 @@ class ProductDetail extends Component {
           </TouchableOpacity>
         </ScrollView>
 
-        {/* <Footer navigation={this.props.navigation} /> */}
       </View>
     );
   }

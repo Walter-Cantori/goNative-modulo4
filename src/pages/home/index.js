@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, FlatList, ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -10,8 +11,7 @@ import { Creators as ProductsActions } from '../../store/ducks/products';
 import styles from './styles';
 import CategoryItem from './components/CategoryItems';
 import ProductItem from './components/ProductItem';
-import Footer from '../../components/Footer';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+
 
 class Home extends Component {
   static navigationOptions = {
@@ -89,8 +89,6 @@ class Home extends Component {
             numColumns={2}
           />
         }
-
-        {/* <Footer navigation={this.props.navigation} /> */}
 
       </View>
     );

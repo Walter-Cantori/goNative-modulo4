@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList } from 'react-native';
 import PropTypes, { shape } from 'prop-types';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { connect } from 'react-redux';
 
-import Footer from '../../components/Footer';
 import styles from './styles';
 import CartItem from './components/CartItem';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 class Cart extends Component {
   static navigationOptions = {
@@ -24,9 +23,6 @@ class Cart extends Component {
       price: PropTypes.number.isRequired,
     })).isRequired,
     total: PropTypes.string.isRequired,
-    navigation: PropTypes.shape({
-      navigate: PropTypes.func.isRequired,
-    }).isRequired,
   }
 
   render() {
@@ -46,7 +42,6 @@ class Cart extends Component {
           <Text style={styles.subtotalPrice}>R${total}</Text>
         </View>
 
-        {/* <Footer navigation={this.props.navigation} /> */}
       </View>
     );
   }
