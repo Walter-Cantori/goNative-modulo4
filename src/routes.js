@@ -1,4 +1,4 @@
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 
 import Home from './pages/home';
 import Cart from './pages/cart';
@@ -8,8 +8,25 @@ import { colors } from './styles';
 
 const Routes = StackNavigator({
   ProductDetail: { screen: ProductDetail },
-  Home: { screen: Home },
-  Cart: { screen: Cart },
+  Main: {
+    screen: TabNavigator({
+      Home: { screen: Home },
+      Cart: { screen: Cart },
+    }, {
+      tabBarPosition: 'bottom',
+      tabBarOptions: {
+        showIcon: true,
+        showLabel: false,
+        activeTintColor: colors.pink,
+        inactivateTintColor: colors.grey,
+        style: {
+          backgroundColor: colors.white,
+          height: 40,
+          paddingTop: 20,
+        },
+      },
+    }),
+  },
 }, {
   navigationOptions: {
     headerTintColor: colors.pink,
@@ -22,7 +39,7 @@ const Routes = StackNavigator({
       height: 54,
     },
   },
-  initialRouteName: 'Home',
+  initialRouteName: 'Main',
 });
 
 export default Routes;

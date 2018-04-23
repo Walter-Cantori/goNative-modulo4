@@ -7,10 +7,12 @@ import { connect } from 'react-redux';
 import Footer from '../../components/Footer';
 import styles from './styles';
 import CartItem from './components/CartItem';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 class Cart extends Component {
   static navigationOptions = {
     title: 'Carrinho',
+    tabBarIcon: ({ tintColor }) => <Icon name="shopping-cart" size={24} color={tintColor} />,
   };
 
   static propTypes = {
@@ -44,7 +46,7 @@ class Cart extends Component {
           <Text style={styles.subtotalPrice}>R${total}</Text>
         </View>
 
-        <Footer navigation={this.props.navigation} />
+        {/* <Footer navigation={this.props.navigation} /> */}
       </View>
     );
   }

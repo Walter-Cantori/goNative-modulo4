@@ -11,10 +11,12 @@ import styles from './styles';
 import CategoryItem from './components/CategoryItems';
 import ProductItem from './components/ProductItem';
 import Footer from '../../components/Footer';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 class Home extends Component {
   static navigationOptions = {
     title: 'GoCommerce',
+    tabBarIcon: ({ tintColor }) => <Icon name="home" size={24} color={tintColor} />,
   };
 
   static propTypes = {
@@ -88,7 +90,7 @@ class Home extends Component {
           />
         }
 
-        <Footer navigation={this.props.navigation} />
+        {/* <Footer navigation={this.props.navigation} /> */}
 
       </View>
     );

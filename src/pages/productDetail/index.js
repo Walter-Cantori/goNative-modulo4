@@ -32,6 +32,7 @@ class ProductDetail extends Component {
 
   static navigationOptions = {
     title: 'Detalhes do Produto',
+    tabBarIcon: () => {}
   };
 
   handleAddToCart(selectedProduct) {
@@ -62,7 +63,7 @@ class ProductDetail extends Component {
           </TouchableOpacity>
         </ScrollView>
 
-        <Footer navigation={this.props.navigation} />
+        {/* <Footer navigation={this.props.navigation} /> */}
       </View>
     );
   }
