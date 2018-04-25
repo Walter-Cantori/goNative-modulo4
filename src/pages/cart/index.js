@@ -31,6 +31,7 @@ class Cart extends Component {
     return (
       <View style={styles.container}>
         <FlatList
+          id="cartContainer"
           style={styles.list}
           data={items}
           keyExtractor={item => String(item.id)}

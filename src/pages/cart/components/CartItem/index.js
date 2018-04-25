@@ -54,7 +54,7 @@ class CartItem extends Component {
         <View style={styles.productRight}>
           <TextInput
             style={styles.qty}
-            onChangeText={text => this.handleQtyChange(text, product)} 
+            onChangeText={text => this.setState({qty: text})}//this.handleQtyChange(text, product)}
             value={String(this.state.qty)}
           />
           <TouchableOpacity style={styles.removeButton} onPress={() => removeFromCart(product)} >
