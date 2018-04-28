@@ -16,6 +16,13 @@ const product = {
   price: 49.99,
 };
 
+const product2 = {
+  image: 'https://t-static.dafiti.com.br/czCvp3wBNPfehf7omYZfJacnxPY=/fit-in/427x620/dafitistatic-a.akamaihd.net%2fp%2fquiksilver-camiseta-quiksilver-hyperas-preta-8710-7136243-1-product.jpg',
+  name: 'Camiseta Hyperas Preta',
+  brand: 'Quiksilver',
+  price: 49.99,
+};
+
 describe('Cart tests', () => {
   const store = mockStore({});
   function createWrapper() {
@@ -45,16 +52,19 @@ describe('Cart tests', () => {
     expect(store.getActions()).toContainEqual(CartActions.removeFromCart(product));
   });
 
-  // it('Should be able to update Qty', () => {
-  //   let wrapper = createWrapper();
-  //   expect(wrapper.dive().state('qty')).toEqual(product.qty);
+  it('Should be able to update Qty', () => {
+    const wrapper = createWrapper();
+    expect(wrapper.dive().state('qty')).toEqual(product.qty);
 
-  //   //wrapper.dive().find(TextInput).simulate('changeText', {target: {value: '4'}})
-  //   // expect(wrapper.dive().state('qty')).toEqual(4);
+    wrapper.dive().find(TextInput).simulate('changeText', '4');
+    expect(store.getActions()).toContainEqual(CartActions.updateQty(4, product));
+  });
 
-  //   wrapper.setState({ qty: 10})
-  //   expect(wrapper.dive().state()).toEqual(8);
-  //   //expect(wrapper.dive().context('state')).toEqual(8);
-  //   //expect(wrapper.dive().find(TextInput).prop('value')).toEqual('test')
-  // });
+  it('Should be able to update Qty', () => {
+    const wrapper = createWrapper();
+    expect(wrapper.dive().state('qty')).toEqual(product.qty);
+
+    wrapper.dive().find(TextInput).simulate('changeText', 'ZA');
+    expect(store.getActions()).toContainEqual(CartActions.updateQty(0, product));
+  });
 });

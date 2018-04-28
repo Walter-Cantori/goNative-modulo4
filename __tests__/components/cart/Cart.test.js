@@ -3,7 +3,9 @@ import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { Text, FlatList } from 'react-native';
 
+
 import Cart from '../../../src/pages/cart';
+import CartItem from '../../../src/pages/cart/components/CartItem';
 
 const mockStore = configureStore([]);
 
@@ -51,8 +53,9 @@ describe('Cart tests', () => {
 
     expect(wrapper.dive().find(FlatList)).toHaveLength(1);
     expect(wrapper.dive().find({ id: 'cartContainer' }).props().data).toEqual(initialState.cart.items);
+    expect(wrapper.dive().find({ id: 'cartContainer' }).props().renderItem(initialState.cart.items[0])).toEqual(<CartItem />);
 
     expect(wrapper.dive().find(Text).contains('Subtotal')).toBe(true);
     expect(wrapper.dive().find(Text).contains(total)).toBe(true);
-  })
+  });
 });
