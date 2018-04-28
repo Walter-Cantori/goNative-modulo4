@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/pages/productDetail/styles.js</title>
+    <title>Code coverage report for src/pages/home/styles.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -16,7 +16,7 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../index.html">All files</a> / <a href="index.html">src/pages/productDetail</a> styles.js
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/pages/home</a> styles.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
@@ -78,66 +78,10 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a>
-<a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -170,59 +114,31 @@
 import { colors, metrics } from '../../styles';
 &nbsp;
 const styles = StyleSheet.create({
-  outerContainer: {
+  container: {
     flex: 1,
   },
-  
-  container: {
-    backgroundColor: colors.white,
-    margin: metrics.baseMargin,
-    marginBottom: 250,
-  },
 &nbsp;
-  image: {
-    height: 285,
-  },
-&nbsp;
-  decription: {
+  catBar: {
     flexDirection: 'row',
-    padding: metrics.basePadding,
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    width: '150%',
+    backgroundColor: colors.pink,
+    height: metrics.categoryBarHeight,
+    paddingHorizontal: metrics.basePadding,
   },
 &nbsp;
-  productName: {
-    width: '60%',
-    fontWeight: 'bold',
-    fontSize: 18,
+  productsContainer: {
+    margin: metrics.baseMargin,
   },
 &nbsp;
-  productBrand: {
-    color: colors.grey,
-    fontSize: 12,
+  catLoading: {
+    backgroundColor: colors.pink,
+    height: metrics.categoryBarHeight,
   },
 &nbsp;
-  productPrice: {
-    width: '40%',
-    textAlign: 'right',
-    color: colors.green,
-    fontWeight: 'bold',
-    fontSize: 24,
+  prodLoading: {
+    marginTop: metrics.baseMargin * 2,
   },
 &nbsp;
-  cartButton: {
-    height: 45,
-    backgroundColor: colors.green,
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: metrics.basePadding,
-  },
-&nbsp;
-  cartText: {
-    color: colors.white,
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
 });
 &nbsp;
 export default styles;

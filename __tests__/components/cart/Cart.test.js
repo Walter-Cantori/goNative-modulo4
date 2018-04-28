@@ -18,6 +18,7 @@ const initialState = {
         name: 'Camiseta Hyperas Preta',
         brand: 'Quiksilver',
         price: 49.99,
+        id: 1,
       },
       {
         name: 'Camiseta Double Tap Preta',
@@ -53,6 +54,7 @@ describe('Cart tests', () => {
 
     expect(wrapper.dive().find(FlatList)).toHaveLength(1);
     expect(wrapper.dive().find({ id: 'cartContainer' }).props().data).toEqual(initialState.cart.items);
+    expect(wrapper.dive().find({ id: 'cartContainer' }).props().keyExtractor(initialState.cart.items[0])).toEqual('1');
     expect(wrapper.dive().find({ id: 'cartContainer' }).props().renderItem(initialState.cart.items[0])).toEqual(<CartItem />);
 
     expect(wrapper.dive().find(Text).contains('Subtotal')).toBe(true);

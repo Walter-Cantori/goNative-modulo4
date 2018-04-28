@@ -68,6 +68,7 @@ class Home extends Component {
         {catLoading
           ? <ActivityIndicator size="small" color="#FFF" style={styles.catLoading} />
           : <FlatList
+            id="categoriesList"
             contentContainerStyle={styles.catBar}
             horizontal={true}
             bounces={false}
@@ -82,6 +83,7 @@ class Home extends Component {
         {prodLoading
           ? <ActivityIndicator size="large" color="#FF6996" style={styles.prodLoading} />
           : <FlatList
+            id="productsList"
             contentContainerStyle={styles.productsContainer}
             data={products}
             keyExtractor={product => String(product.id)}
