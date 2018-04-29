@@ -26,7 +26,7 @@ describe('Product Detail Testing', () => {
   const navigateFn = sinon.spy();
   const navigation = {
     navigate: navigateFn,
-    dispatch: function() {},
+    dispatch: () => {},
     state: { routeName: 'testRoute' },
   };
   function createWrapper() {

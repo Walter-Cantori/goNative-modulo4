@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/9</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">60% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>3/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/3</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/8</span>
+        <span class='fraction'>8/8</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -74,43 +74,43 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { call, put, select } from 'redux-saga/effects';
 &nbsp;
 import { Creators as CategoriesActions } from '../ducks/categories';
 import api from '../../services/api';
 &nbsp;
-export function* <span class="fstat-no" title="function not covered" >getCategories(</span>) {
-<span class="cstat-no" title="statement not covered" >  try {</span>
-    const response = <span class="cstat-no" title="statement not covered" >yield call(api.get, '/categories');</span>
-<span class="cstat-no" title="statement not covered" >    yield put(CategoriesActions.getCategoriesSuccess(response.data));</span>
-&nbsp;
-    const categories = <span class="cstat-no" title="statement not covered" >yield select(<span class="fstat-no" title="function not covered" >st</span>ate =&gt; <span class="cstat-no" title="statement not covered" >state.categories)</span>;</span>
-<span class="cstat-no" title="statement not covered" >    if (!categories.activeCategory.id &amp;&amp; categories.categories.length &gt; 0) {</span>
-<span class="cstat-no" title="statement not covered" >      yield put(CategoriesActions.setActiveCategory(categories.categories[0]));</span>
+export function* getCategories() {
+  try {
+    const response = yield call(api.get, '/categories');
+    yield put(CategoriesActions.getCategoriesSuccess(response.data));
+    const categories = yield select(state =&gt; state.categories);
+    //console.log((!categories.activeCategory || !categories.activeCategory.id) &amp;&amp; categories.categories.length &gt; 0)
+    <span class="missing-if-branch" title="else path not taken" >E</span>if ((!categories.activeCategory || <span class="branch-1 cbranch-no" title="branch not covered" >!categories.activeCategory.id)</span> &amp;&amp; categories.categories.length &gt; 0) {
+      yield put(CategoriesActions.setActiveCategory(categories.categories[0]));
     }
   } catch (err) {
-<span class="cstat-no" title="statement not covered" >    yield put(CategoriesActions.getCategoriesFailure('Erro ao buscar categorias'));</span>
+    yield put(CategoriesActions.getCategoriesFailure('Erro ao buscar categorias'));
   }
 }
 &nbsp;
-export function* <span class="fstat-no" title="function not covered" >setCategory(</span>) {
-<span class="cstat-no" title="statement not covered" >  yield put(CategoriesActions.setCategorySuccess());</span>
+export function* setCategory() {
+  yield put(CategoriesActions.setCategorySuccess());
 }
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -118,7 +118,7 @@ export function* <span class="fstat-no" title="function not covered" >setCategor
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Apr 28 2018 19:12:23 GMT-0300 (-03)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Apr 29 2018 20:23:26 GMT-0300 (-03)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

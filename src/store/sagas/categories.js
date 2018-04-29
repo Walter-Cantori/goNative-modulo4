@@ -7,9 +7,8 @@ export function* getCategories() {
   try {
     const response = yield call(api.get, '/categories');
     yield put(CategoriesActions.getCategoriesSuccess(response.data));
-
     const categories = yield select(state => state.categories);
-    if (!categories.activeCategory.id && categories.categories.length > 0) {
+    if ((!categories.activeCategory || !categories.activeCategory.id) && categories.categories.length > 0) {
       yield put(CategoriesActions.setActiveCategory(categories.categories[0]));
     }
   } catch (err) {

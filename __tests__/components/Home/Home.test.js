@@ -3,13 +3,10 @@ import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { FlatList, View, ActivityIndicator } from 'react-native';
 import sinon from 'sinon';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Home from '../../../src/pages/home';
 import { Creators as CategoriesActions } from '../../../src/store/ducks/categories';
 import { Creators as ProductsActions } from '../../../src/store/ducks/products';
-import ProductItem from '../../../src/pages/home/components/ProductItem';
-import CategoryItems from '../../../src/pages/home/components/CategoryItems';
 
 
 const mockStore = configureStore([]);
@@ -70,7 +67,6 @@ const loadingState = {
   },
 };
 
-const changeCat = sinon.spy()
 const navigateFn = sinon.spy();
 const navigation = {
   navigate: navigateFn,

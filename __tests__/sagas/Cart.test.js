@@ -1,10 +1,7 @@
 import SagaTester from 'redux-saga-tester';
-import rootSaga from '../../src/store/sagas';
-import reducer from '../../src/store/ducks/cart';
-import { Creators as CartActions } from '../../src/store/ducks/cart';
-import MockAdapter from 'axios-mock-adapter';
 
-import api from '../../src/services/api';
+import rootSaga from '../../src/store/sagas';
+import reducer, { Creators as CartActions } from '../../src/store/ducks/cart';
 
 
 const product = {
@@ -19,14 +16,12 @@ const defaultState = { cart: { items: [] } };
 
 describe('Cart Sagas testing', () => {
   let sagaTester = null;
-  let apiMock = null;
 
   beforeEach(() => {
     sagaTester = new SagaTester({
       initialState: defaultState,
       reducers: reducer,
     });
-    apiMock = new MockAdapter(api.axiosInstance);
     sagaTester.start(rootSaga);
   });
 
