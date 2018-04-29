@@ -57,7 +57,7 @@ export const Creators = {
 
   setCategoryfailure: error => ({
     type: Types.SET_CATEGORY_FAILURE,
-    payload: { error }
+    payload: { error },
   }),
 
 };
